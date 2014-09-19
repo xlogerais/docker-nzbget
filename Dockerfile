@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # Install prerequisites
-RUN apt-get install -y wget build-essential pkg-config libncurses5-dev libssl-dev libxml2-dev unrar p7zip
+RUN apt-get install -y wget build-essential pkg-config libncurses5-dev libssl-dev libxml2-dev unrar-free p7zip
 
 # Download latest nzbget
 RUN wget http://sourceforge.net/projects/nzbget/files/nzbget-${NZBGET_VERSION}.tar.gz -O /tmp/nzbget.tar.gz
