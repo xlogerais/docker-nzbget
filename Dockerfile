@@ -34,7 +34,7 @@ RUN useradd -m nzbget
 # Prepare directory structure
 USER nzbget
 WORKDIR /home/nzbget
-RUN cp /usr/local/share/nzbget/nzbget.conf > .nzbget
+RUN cp /usr/local/share/nzbget/nzbget.conf .nzbget
 #RUN mkdir -p downloads/dst
 
 # Expose the listening port
