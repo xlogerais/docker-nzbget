@@ -14,7 +14,7 @@ RUN apt-get update
 #RUN apt-get install -y nzbget
 
 # Install prerequisites
-RUN apt-get install wget build-essential pkg-config libncurses5-dev libssl-dev libxml2-dev -y
+RUN apt-get install -y wget build-essential pkg-config libncurses5-dev libssl-dev libxml2-dev unrar
 
 # Download
 RUN wget http://sourceforge.net/projects/nzbget/files/nzbget-${NZBGET_VERSION}.tar.gz -O /tmp/nzbget.tar.gz
@@ -35,7 +35,8 @@ RUN useradd -m nzbget
 # Prepare directory structure
 USER nzbget
 WORKDIR /home/nzbget
-RUN sed -e 's,/downloads,/home/nzbget/downloads,g' /usr/local/share/nzbget/nzbget.conf > .nzbget
+#RUN sed -e 's,/downloads,/home/nzbget/downloads,g' /usr/local/share/nzbget/nzbget.conf > .nzbget
+RUN cp /usr/local/share/nzbget/nzbget.conf > .nzbget
 RUN mkdir -p downloads/dst
 
 # Expose the listening port
